@@ -16,6 +16,7 @@ public class OktaOAuth2WebSecurity {
     ){
         http
                 .authorizeExchange()
+                .pathMatchers("/actuator/**").permitAll()
                 .anyExchange().authenticated()
                 .and()
                 .oauth2Login()

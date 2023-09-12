@@ -1,6 +1,7 @@
 package com.vn.controller;
 
 import com.vn.model.AuthenticationResponse;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/authenticate")
 public class AuthenticationController {
     @GetMapping("/login")
+    @Timed(value = "login.time",description = "Time taken to account details!")
     public ResponseEntity<AuthenticationResponse> login(
         @AuthenticationPrincipal OidcUser oidcUser,
         Model model,

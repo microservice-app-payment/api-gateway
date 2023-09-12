@@ -7,10 +7,8 @@ import reactor.core.publisher.Mono;
 
 @Configuration
 public class KeySolverConfig {
-
     @Bean
     KeyResolver userKeySolver(){
         return exchange -> Mono.just("userKey");
     }
-
 }
